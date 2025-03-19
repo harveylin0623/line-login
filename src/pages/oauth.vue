@@ -24,7 +24,7 @@ const getLineMemberProfile = async() => {
     data: {
       grant_type: 'authorization_code',
       code: paramsObj.get('code'),
-      redirect_uri: 'http://localhost:5000/#/oauth',
+      redirect_uri: 'https://line-login-gules.vercel.app/oauth',
       client_id: '2007083960',
       client_secret: 'a51f5efbc77fa254f533564306e54714'
     }

@@ -15,7 +15,7 @@ const loginHandler = () => {
   const queryString = new URLSearchParams({
     response_type: 'code',
     client_id: '2007083960',
-    redirect_uri: 'http://localhost:5000/#/oauth',
+    redirect_uri: 'https://line-login-gules.vercel.app/oauth',
     state: 'login',
     scope: 'openid profile email',
     bot_prompt: 'aggressive'
