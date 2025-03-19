@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0d6efd;
+  --color-danger: #dc3545;
+}
+
+:root.dark {
+  --color-primary: gray;
+}
+
+body {
+  background-color: #fff;
+}
+
+@layer base {
+  body {
+    font-family: "Noto Sans TC";
+  }
+  
+  h1 {
+    @apply text-2xl font-medium;
+  }
+
+  h2 {
+    @apply text-xl font-medium;
+  }
+
+  h3 {
+    @apply text-base font-medium;
+  }
+
+  [type="checkbox"] {
+    @apply relative w-[16px] h-[16px] border border-[#C9C9C9] appearance-none cursor-pointer checked:bg-[#A174A6] after:content-[''] after:hidden after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-[45deg] after:w-[5px] after:h-[8px] after:border-b after:border-r after:border-b-white after:border-r-white checked:after:block;
+  }
+
+  [type="radio"] {
+    @apply relative w-[16px] h-[16px] border border-[#C9C9C9] bg-white appearance-none rounded-full cursor-pointer after:content-[''] after:hidden after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-[10px] after:h-[10px] after:bg-[#A174A6] after:rounded-full checked:after:block;
+  }
+  
+  textarea {
+    @apply min-h-[150px] resize-none;
+  }
+}
+
+@layer components {
+  .form-control {
+    @apply block w-full h-[36px] px-3 py-1.5 border border-[#C9C9C9] text-base rounded-sm focus:outline-0 focus:border-[#6C9EFF] focus:shadow-[0px_0px_0px_2px_#1890FF33] placeholder:text-[#AAAAAA] [&.invalid]:border-[#D2303B] [&.invalid]:focus:shadow-[0px_0px_0px_2px_#D2303B33];
+  }
+
+  .btn {
+    @apply inline-block px-3 py-1.5 text-sm border bg-white border-solid rounded transition;
+  }
+
+  .btn-primary {
+    @apply text-white bg-[#007bff] border-[#007bff] hover:bg-[#0069d9] hover:border-[#0069d9];
+  }
+
+  .btn-outline-primary {
+    @apply text-[#007bff] border-[#007bff] hover:text-white hover:bg-[#007bff];
+  }
+}

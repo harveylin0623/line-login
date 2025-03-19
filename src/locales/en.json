@@ -1,0 +1,19 @@
+{
+  "seo": {
+    "title": {
+      "projectName": "project",
+      "home": "home"
+    }
+  },
+  "validate": {
+    "required": "required",
+    "email": "email format error",
+    "password": "6 - 12 english or number",
+    "confirm_password": "password error",
+    "phone": "phone format error",
+    "taxId": "",
+    "hyperlink": ""
+  },
+  "address": "{account}{'@'}{domain}",
+  "article": "{text}"
+}

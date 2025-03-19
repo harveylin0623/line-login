@@ -1,0 +1,19 @@
+{
+  "seo": {
+    "title": {
+      "projectName": "專案",
+      "home": "首頁"
+    }
+  },
+  "validate": {
+    "required": "必填",
+    "email": "電子信箱格式有誤",
+    "password": "6 - 12 碼英數字",
+    "confirm_password": "確認密碼有誤",
+    "phone": "手機格式有誤",
+    "taxId": "統一編號格式有誤",
+    "hyperlink": "網站連結格式有誤"
+  },
+  "address": "{account}{'@'}{domain}",
+  "article": "{text}"
+}

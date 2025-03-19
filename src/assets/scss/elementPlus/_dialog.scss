@@ -1,0 +1,45 @@
+.basic-dialog {
+  &.el-dialog {
+    --el-dialog-width: 476px;
+    --el-dialog-border-radius: 12px;
+    --el-dialog-padding-primary: 20px;
+    &.sm {
+      --el-dialog-width: 360px;
+    }
+    &.lg {
+      --el-dialog-width: 680px;
+    }
+  }
+}
+
+.basic-dialog {
+  &.el-dialog {
+    .el-dialog__header {
+      padding-bottom: 40px;
+    }
+    .el-dialog__body {
+      color: #000;
+    }
+    .el-dialog__footer {
+      padding-top: 40px;
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  .basic-dialog {
+    &.el-dialog {
+      &.lg {
+        --el-dialog-width: 476px;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .basic-dialog {
+    &.el-dialog {
+      --el-dialog-width: 95% !important;
+    }
+  }
+}
