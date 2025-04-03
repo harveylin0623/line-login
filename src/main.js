@@ -13,6 +13,9 @@ import '@/plugins/vee-validate.js'
 import App from './App.vue'
 import '@/assets/scss/elementPlus/index.scss'
 import { useDarkMode } from '@/composables/useDarkMode.js'
+import VConsole from 'vconsole'
+
+new VConsole({ theme: 'dark' })
 
 const app = createApp(App)
 const head = createHead()
