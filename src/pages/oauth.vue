@@ -77,7 +77,7 @@ const getLineMemberProfile = async() => {
     }
   })
 
-  isFriendByLoginApi.value = friendStatusByLoginApi.friendFlag
+  isFriendByLoginApi.value = friendStatusByLoginApi.data.friendFlag
 
 }
 
