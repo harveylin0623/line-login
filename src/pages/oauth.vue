@@ -81,7 +81,7 @@ const getLineMemberProfile = async() => {
 
   isFriendByLoginApi.value = friendStatusByLoginApi.data.friendFlag
 
-  // 透過message api查詢是否加入官方帳號
+  // 透過message api查詢是否加入官方帳號 (因資安問題必須由server打,前端打會被跨域)
   try {
     const friendStatusByMessageApi = await axios({
       url: `https://api.line.me/v2/bot/profile/${accessTokenResponse.data.userId}`,
@@ -94,7 +94,7 @@ const getLineMemberProfile = async() => {
     console.log(friendStatusByMessageApi)
     isFriendByMessageApi.value = true
   } catch (err) {
-    console.log(err.response.data)
+    console.log(err)
     isFriendByMessageApi.value = false
   }
 
