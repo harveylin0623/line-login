@@ -1,10 +1,15 @@
 <template>
   <div>
+    <p>是否為官方帳號好友: {{ isFriendByUrlParams }} (透過friendship_status_changed參數取得)</p>
+    <p>是否為官方帳號好友: {{ isFriendByLoginApi }} (透過line login api取得)</p>
   </div>
 </template>
 
 <script setup>
 import axios from 'axios'
+
+const isFriendByUrlParams = ref(false)
+const isFriendByLoginApi = ref(false)
 
 const getLineMemberProfile = async() => {
   const paramsObj = new URL(location.href).searchParams
@@ -15,8 +20,9 @@ const getLineMemberProfile = async() => {
     }
   }
 
-  console.log(paramsObj.get('friendship_status_changed'))
+  isFriendByUrlParams.value = paramsObj.get('friendship_status_changed')
 
+  // 使用code取得accessToken
   const oauthResponse = await axios({
     url: 'https://api.line.me/oauth2/v2.1/token',
     method: 'post',
@@ -34,6 +40,7 @@ const getLineMemberProfile = async() => {
 
   console.log(oauthResponse.data)
 
+  //使用idToken取得profile
   const idTokenResponse = await axios({
     url: 'https://api.line.me/oauth2/v2.1/verify',
     method: 'post',
@@ -48,6 +55,7 @@ const getLineMemberProfile = async() => {
 
   console.log(idTokenResponse.data)
 
+  //使用accessToken取得profile
   const accessTokenResponse = await axios({
     url: 'https://api.line.me/v2/profile',
     method: 'get',
@@ -58,6 +66,19 @@ const getLineMemberProfile = async() => {
   })
 
   console.log(accessTokenResponse.data)
+
+  // 透過Friendship status api查詢是否加入官方帳號
+  const friendStatusByLoginApi = await axios({
+    url: 'https://api.line.me/friendship/v1/status',
+    method: 'get',
+    headers: {
+      Authorization: `Bearer ${oauthResponse.data.access_token}`,
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  })
+
+  isFriendByLoginApi.value = friendStatusByLoginApi.friendFlag
+
 }
 
 onMounted(async() => {
