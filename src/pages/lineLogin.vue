@@ -19,7 +19,7 @@ const loginHandler = () => {
     state: 'login',
     scope: 'openid profile email',
     bot_prompt: 'aggressive',
-    prompt: 'login'
+    prompt: 'consent'
   })
 
   location.href = `https://access.line.me/oauth2/v2.1/authorize?${queryString.toString()}`
