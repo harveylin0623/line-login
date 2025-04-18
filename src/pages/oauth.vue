@@ -15,6 +15,8 @@ const getLineMemberProfile = async() => {
     }
   }
 
+  console.log(paramsObj.get('friendship_status_changed'))
+
   const oauthResponse = await axios({
     url: 'https://api.line.me/oauth2/v2.1/token',
     method: 'post',

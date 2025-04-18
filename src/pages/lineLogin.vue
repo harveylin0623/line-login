@@ -18,7 +18,7 @@ const loginHandler = () => {
     redirect_uri: 'https://line-login-gules.vercel.app/oauth',
     state: 'login',
     scope: 'openid profile email',
-    bot_prompt: 'normal'
+    bot_prompt: 'aggressive'
   })
 
   location.href = `https://access.line.me/oauth2/v2.1/authorize?${queryString.toString()}`
