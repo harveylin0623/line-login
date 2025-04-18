@@ -87,7 +87,7 @@ const getLineMemberProfile = async() => {
       url: `https://api.line.me/v2/bot/profile/${accessTokenResponse.data.userId}`,
       method: 'get',
       headers: {
-        Authorization: `Bearer bpXut/XjfLnoAQZG8wuYsfSCjl7GM5MFukTVlQt9RlkWeq9Mj7Mdl24WNdcp36qbwJRjFLoYAP4pnsXnxknTqbkRiyjLIXyAxbE8vTrHlSWAI+x+Lmn24T6HcwN+haQITLRZFuz6ietlkSfh83yN5gdB04t89/1O/w1cDnyilFU=`,
+        Authorization: `Bearer y2VUPJdOnjk357uXvChTAA8u6Ct7zKhQY5syV5zKWn0/xJCZJd6bTS1IgRhRYPLFwJRjFLoYAP4pnsXnxknTqbkRiyjLIXyAxbE8vTrHlSXpmIkyxBcmIE0YkuLdkfVBPILMcPm1DJQbkoToeUWNhgdB04t89/1O/w1cDnyilFU=`,
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
