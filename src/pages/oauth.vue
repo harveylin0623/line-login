@@ -85,6 +85,7 @@ const getLineMemberProfile = async() => {
   try {
     const friendStatusByMessageApi = await axios({
       url: `https://api.line.me/v2/bot/profile/${accessTokenResponse.data.userId}`,
+      method: 'get',
       headers: {
         Authorization: `Bearer bpXut/XjfLnoAQZG8wuYsfSCjl7GM5MFukTVlQt9RlkWeq9Mj7Mdl24WNdcp36qbwJRjFLoYAP4pnsXnxknTqbkRiyjLIXyAxbE8vTrHlSWAI+x+Lmn24T6HcwN+haQITLRZFuz6ietlkSfh83yN5gdB04t89/1O/w1cDnyilFU=`,
         'Content-Type': 'application/x-www-form-urlencoded'
