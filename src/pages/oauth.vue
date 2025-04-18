@@ -2,6 +2,7 @@
   <div>
     <p>是否為官方帳號好友: {{ isFriendByUrlParams }} (透過friendship_status_changed參數取得)</p>
     <p>是否為官方帳號好友: {{ isFriendByLoginApi }} (透過line login api取得)</p>
+    <p>是否為官方帳號好友: {{ isFriendByMessageApi }} (透過message api取得)</p>
   </div>
 </template>
 
@@ -10,6 +11,7 @@ import axios from 'axios'
 
 const isFriendByUrlParams = ref(false)
 const isFriendByLoginApi = ref(false)
+const isFriendByMessageApi = ref(false)
 
 const getLineMemberProfile = async() => {
   const paramsObj = new URL(location.href).searchParams
@@ -78,6 +80,22 @@ const getLineMemberProfile = async() => {
   })
 
   isFriendByLoginApi.value = friendStatusByLoginApi.data.friendFlag
+
+  // 透過message api查詢是否加入官方帳號
+  try {
+    const friendStatusByMessageApi = await axios({
+      url: `https://api.line.me/v2/bot/profile/${accessTokenResponse.data.userId}`,
+      headers: {
+        Authorization: `Bearer bpXut/XjfLnoAQZG8wuYsfSCjl7GM5MFukTVlQt9RlkWeq9Mj7Mdl24WNdcp36qbwJRjFLoYAP4pnsXnxknTqbkRiyjLIXyAxbE8vTrHlSWAI+x+Lmn24T6HcwN+haQITLRZFuz6ietlkSfh83yN5gdB04t89/1O/w1cDnyilFU=`,
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    })
+    console.log(friendStatusByMessageApi)
+    isFriendByMessageApi.value = true
+  } catch (err) {
+    console.log(err.response.data)
+    isFriendByMessageApi.value = false
+  }
 
 }
 
