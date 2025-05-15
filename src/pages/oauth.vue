@@ -38,8 +38,8 @@ const getLineMemberProfile = async() => {
       grant_type: 'authorization_code',
       code: paramsObj.get('code'),
       redirect_uri: 'https://line-login-gules.vercel.app/oauth',
-      client_id: '2007083960',
-      client_secret: 'a51f5efbc77fa254f533564306e54714'
+      client_id: '2007307282',
+      client_secret: '37d3016b4018fd7502687b32ab01ebc9'
     }
   })
 
@@ -54,7 +54,7 @@ const getLineMemberProfile = async() => {
     },
     data: {
       id_token: oauthResponse.data.id_token,
-      client_id: '2007083960'
+      client_id: '2007307282'
     }
   })
 
