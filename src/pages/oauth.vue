@@ -3,12 +3,15 @@
     <p>是否為官方帳號好友: {{ isFriendByUrlParams }} (透過friendship_status_changed參數取得)</p>
     <p>是否為官方帳號好友: {{ isFriendByLoginApi }} (透過line login api取得)</p>
     <p>是否為官方帳號好友: {{ isFriendByMessageApi }} (透過message api取得)</p>
+    <button @click="router.push('/lineLogin')">返回 line login</button>
   </div>
 </template>
 
 <script setup>
 import axios from 'axios'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const isFriendByUrlParams = ref(false)
 const isFriendByLoginApi = ref(false)
 const isFriendByMessageApi = ref(false)
@@ -35,8 +38,8 @@ const getLineMemberProfile = async() => {
       grant_type: 'authorization_code',
       code: paramsObj.get('code'),
       redirect_uri: 'https://line-login-gules.vercel.app/oauth',
-      client_id: '2007083960',
-      client_secret: 'a51f5efbc77fa254f533564306e54714'
+      client_id: '2007307282',
+      client_secret: '37d3016b4018fd7502687b32ab01ebc9'
     }
   })
 
