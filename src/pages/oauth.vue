@@ -54,7 +54,7 @@ const getLineMemberProfile = async() => {
     },
     data: {
       id_token: oauthResponse.data.id_token,
-      client_id: '2007083960'
+      client_id: '2007307282'
     }
   })
 
