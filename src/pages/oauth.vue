@@ -3,6 +3,7 @@
     <p>是否為官方帳號好友: {{ isFriendByUrlParams }} (透過friendship_status_changed參數取得)</p>
     <p>是否為官方帳號好友: {{ isFriendByLoginApi }} (透過line login api取得)</p>
     <p>是否為官方帳號好友: {{ isFriendByMessageApi }} (透過message api取得)</p>
+    <p>line code: {{ $route.query.code }}</p>
     <button
       class="rounded border border-black px-2 py-1 text-[red]"
       @click="router.push('/lineLogin')"
@@ -29,6 +30,9 @@ const getLineMemberProfile = async() => {
       payload: null
     }
   }
+
+  const count = 0
+  if (count === 0) return
 
   isFriendByUrlParams.value = paramsObj.get('friendship_status_changed')
 
